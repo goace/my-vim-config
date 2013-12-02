@@ -230,20 +230,55 @@
   """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
   " Plugins 
   """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-  " WinManager
-  let g:winManagerWindowLayout='FileExplorer|TagList'
-  nmap wm :WMToggle<cr>
+  " Authorinfo
+  let g:vimrc_author='Ace' 
+  let g:vimrc_email='madaokuan@gmail.com' 
+  let g:vimrc_homepage='http://i.orzace.com' 
+  nmap <F4> :AuthorInfoDetect<cr>
+  
+  " indentLine 
+  let g:indentLine_char = '┆'
+  let g:indentLine_color_term = 8 
+  
+  " pydiction
+  "set omnifunc=pythoncomplete#Complete
+  let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
+  let g:pydiction_menu_height = 20
+
+  " Python syntax
+  let python_highlight_all = 1
+  let python_version_2 = 1
+  
+  " rainbow parentheses
+  " color name: http://linguistics.berkeley.edu/~rscook/socrates/public_html/html/colors/hexcolor0.html
+  au VimEnter * RainbowParenthesesToggle
+  au Syntax * RainbowParenthesesLoadRound
+  au Syntax * RainbowParenthesesLoadSquare
+  au Syntax * RainbowParenthesesLoadBraces
+  "let g:rainbow_active = 1
+  "let g:rainbow_operators = 2
+  let g:rainbow_guifgs = ['HotPink2', 'DarkOrange', 'yellow', 'turquoise', 'DarkSlateGray2', 'DeepSkyBlue1', 'purple']
 
   " tagbar
   nmap tb :TagbarToggle<CR>
   let g:tagbar_width = 40
   let g:tagbar_left = 1
 
-  " Authorinfo
-  let g:vimrc_author='Ace' 
-  let g:vimrc_email='madaokuan@gmail.com' 
-  let g:vimrc_homepage='http://orzace.com' 
-  nmap <F4> :AuthorInfoDetect<cr>
+  " taglist
+  nmap tt :TlistToggle<CR>
+  
+  " The NERD Commenter
+  vmap z \cc
+  vmap x \cu
+
+  " vim-javascript
+  let g:javascript_enable_domhtmlcss = 1
+  
+  " WinManager
+  let g:winManagerWindowLayout='FileExplorer|TagList'
+  nmap wm :WMToggle<cr>
+
+
 
   " DoxygenToolkit
   let g:DoxygenToolkit_briefTag_pre="function   : " 
@@ -253,27 +288,9 @@
   let g:DoxygenToolkit_blockFooter="---------------------------------------------------------------"
   nmap <F5> :Dox<cr>
 
-  " setting for omnicppcomplete
-  set nocp
-
-  " 下面的设置用于当用户预先声明namespace时也能自动补全代码（如使用using std::string） 
-  let OmniCpp_DefaultNamespaces = ["std"]
-
   " 键位映射 
   nmap q  <S-^>
   nmap w  <S-$>
-  nmap tt :TlistToggle<CR>
-  vmap z \cc
-  vmap x \cu
-
-  " pydiction
-  "set omnifunc=pythoncomplete#Complete
-  let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
-  let g:pydiction_menu_height = 20
-
-  " 对齐线
-  let g:indentLine_char = '┆'
-  let g:indentLine_color_term = 8 
 
   " highlight current column
   nmap dq :call SetColorColumn()<CR>
@@ -290,17 +307,12 @@
   " powerline
   let g:Powerline_symbols = 'fancy'
 
-  " rainbow parentheses
-  " color name: http://linguistics.berkeley.edu/~rscook/socrates/public_html/html/colors/hexcolor0.html
-  let g:rainbow_active = 1
-  let g:rainbow_operators = 2
-  let g:rainbow_guifgs = ['HotPink2', 'DarkOrange', 'yellow', 'turquoise', 'DarkSlateGray2', 'DeepSkyBlue1', 'purple']
 
   " js and html indent 
   let g:html_indent_inctags = "html,body,head,tbody"
   let g:html_indent_script1 = "inc"
   let g:html_indent_style1 = "inc"
-  au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+  "au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
   " settings for mvim
   set guioptions-=L
